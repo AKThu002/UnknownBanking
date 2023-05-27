@@ -27,21 +27,21 @@ public class WithdrawSuccessful extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lbl_withdrawSuccessful = new javax.swing.JLabel();
+        btn_continue = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
-        jLabel1.setText("Withdraw Successful");
+        lbl_withdrawSuccessful.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
+        lbl_withdrawSuccessful.setText("Withdraw Successful");
 
-        jButton1.setBackground(new java.awt.Color(115, 142, 212));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Continue");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_continue.setBackground(new java.awt.Color(115, 142, 212));
+        btn_continue.setForeground(new java.awt.Color(255, 255, 255));
+        btn_continue.setText("Continue");
+        btn_continue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_continueActionPerformed(evt);
             }
         });
 
@@ -52,17 +52,17 @@ public class WithdrawSuccessful extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbl_withdrawSuccessful, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_continue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jLabel1)
+                .addComponent(lbl_withdrawSuccessful)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btn_continue)
                 .addGap(27, 27, 27))
         );
 
@@ -87,10 +87,14 @@ public class WithdrawSuccessful extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    private void btn_continueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_continueActionPerformed
+        MainFrame mainFrame = new MainFrame();
+        mainFrame.setVisible(true);
+        this.setVisible(false); 
+    }//GEN-LAST:event_btn_continueActionPerformed
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -127,8 +131,8 @@ public class WithdrawSuccessful extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btn_continue;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbl_withdrawSuccessful;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,17 +4,25 @@
  */
 package com.mycompany.unknownbanking;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author AKThu002
  */
 public class MainFrame extends javax.swing.JFrame {
 
+    BalanceManipulation balanceManipulate = new BalanceManipulation();
+    
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        lbl_balanceValue.setText(balanceManipulate.formatBalance(balanceManipulate.getBalance()));
+
     }
 
     /**
@@ -102,6 +110,11 @@ public class MainFrame extends javax.swing.JFrame {
         btn_deposit.setText("Deposit");
         btn_deposit.setMaximumSize(new java.awt.Dimension(100, 100));
         btn_deposit.setMinimumSize(new java.awt.Dimension(100, 100));
+        btn_deposit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_depositActionPerformed(evt);
+            }
+        });
 
         btn_withdraw.setBackground(new java.awt.Color(115, 142, 212));
         btn_withdraw.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -151,9 +164,18 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_withdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_withdrawActionPerformed
-        // TODO add your handling code here:
+        WithdrawFrame withdrawFrame = new WithdrawFrame();
+        withdrawFrame.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_withdrawActionPerformed
 
+    private void btn_depositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_depositActionPerformed
+        DepositFrame depositFrame = new DepositFrame();
+        depositFrame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_depositActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -185,6 +207,7 @@ public class MainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainFrame().setVisible(true);
+                
             }
         });
     }
@@ -199,4 +222,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Unknown;
     private javax.swing.JLabel lbl_balanceValue;
     // End of variables declaration//GEN-END:variables
+    private String query = null; // to temporarily storing query statement for execution
+    ResultSet result = null; // to store data returned from query execution
+    PreparedStatement preStatement;
+    Connection dbconnection;
 }

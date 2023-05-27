@@ -10,11 +10,14 @@ package com.mycompany.unknownbanking;
  */
 public class DepositFrame extends javax.swing.JFrame {
 
+    BalanceManipulation balanceManipulate = new BalanceManipulation();
+    
     /**
      * Creates new form DepositFrame
      */
     public DepositFrame() {
         initComponents();
+        lbl_balanceValue.setText(balanceManipulate.formatBalance(balanceManipulate.getBalance()));
     }
 
     /**
@@ -118,6 +121,11 @@ public class DepositFrame extends javax.swing.JFrame {
         btn_confirm.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_confirm.setForeground(new java.awt.Color(255, 255, 255));
         btn_confirm.setText("Confirm");
+        btn_confirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_confirmActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -187,8 +195,17 @@ public class DepositFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
-        // TODO add your handling code here:
+        MainFrame mainFrame = new MainFrame();
+        mainFrame.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_cancelActionPerformed
+
+    private void btn_confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirmActionPerformed
+        balanceManipulate.deposit(Integer.valueOf(tf_DepositAmount.getText()));
+        DepositSuccessful depositSuccess = new DepositSuccessful();
+        depositSuccess.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_confirmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +238,7 @@ public class DepositFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new DepositFrame().setVisible(true);
+                
             }
         });
     }

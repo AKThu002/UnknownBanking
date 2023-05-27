@@ -88,7 +88,9 @@ public class DepositSuccessful extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_continueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_continueActionPerformed
-        // TODO add your handling code here:
+        MainFrame mainFrame = new MainFrame();
+        mainFrame.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_continueActionPerformed
 
     /**
